@@ -2,7 +2,7 @@
 
 ## **Finding Lane Lines on the Road** 
 
-This write-up contains a reflection of the algorithm in the first assignment used for lane detection, based on different methods of lane detection taught in the "Computer Vision Fundamentals" lesson 
+This write-up contains a reflection of the algorithm in the first assignment used for lane detection, based on different methods of lane detection taught in the "Computer Vision Fundamentals" lesson. 
 
 ---
 
@@ -19,7 +19,8 @@ The goals / steps of this project are the following:
 ### 1. Description of Approach
 
 #### Pipeline Description ####
-In the Jupyter notebook, a function called pipeline was created. This function takes in an image array as input, and outputs the final image from the pipeline, which is an image of the detected lane edges, as well as the extrapolated lane lines, superposed onto the original image. 
+In the Jupyter notebook, a function called pipeline was created. This function takes in an image array as input, and outputs the final image from the pipeline, which is an image of the detected lane edges, as well as the extrapolated lane lines, superposed onto the original image. The base code for the functions were modified from code taught during the quizzes during the lesson on Computer Vision Fundamentals, while the main function definitions were part of the skeleton code that was provided for this assignment. 
+
 My pipeline consisted of 7 steps:
 
 1. Apply a colored mask to filter possible colors of the lane, and output this image for the next step. For this pipeline, the RGB threshold used was  [0, 120, 120]. Hence, lane colors ranging from red to white could be detected, which is approximately the range of lane colors that are being used. Pixels whose RGB values do not meet either of these thresholds would be masked as black. 
@@ -46,9 +47,9 @@ For every line in the set, we:
 
 After iterating through the set, we average the gradient and center to obtain a linear Cartesian equation for both left and right lines. We then extrapolate the line based on the calculated lane center. 
 
-The function then draws the extrapolated left and right lane onto a blank (black) image,to be combined with the output from draw_edges in Step 7 of the procedure. 
+The function then draws the extrapolated left and right lane onto a blank (black) image,to be combined with thue output from draw_edges in Step 7 of the procedure. 
 
-### 2. Identify potential shortcomings with your current pipeline
+### 2. Potential Shortcomings of the Current Pipeline
 
 There are several shortcomings identified from this current pipeline. 
 
@@ -57,7 +58,7 @@ First, as the basis of this pipeline was in grayscale, this could result in mis-
 Second, as a region filter was used, this would reduce the robustness of the detection algorithm during the lane change, the relative position of the lanes to the image would shift when the driver is performing the lane change. As a result, the position of lanes could be mis-identified. 
 
 
-### 3. Suggest possible improvements to your pipeline
+### 3. Possible Improvements
 
 In light of the shortcomings identified earlier, there are a couple of improvements that could be made to strengthen the robustness of the algorithm. 
 
