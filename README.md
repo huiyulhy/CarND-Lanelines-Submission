@@ -18,7 +18,7 @@ The goals / steps of this project are the following:
 
 ### 1. Description of Approach
 
-#### Pipeline Description 
+#### Pipeline Description ####
 In the Jupyter notebook, a function called pipeline was created. This function takes in an image array as input, and outputs the final image from the pipeline, which is an image of the detected lane edges, as well as the extrapolated lane lines, superposed onto the original image. 
 My pipeline consisted of 7 steps:
 
@@ -30,14 +30,12 @@ My pipeline consisted of 7 steps:
 6. On the original image, we will annotate the Canny edges. On a separate blank (black) image, we will try to identify the center of lanes and the slope, and attempt to extrapolate the posiiton of the lanes. 
 7. Using the 2 separate images from Step 7, I then used the weighted_image function to obtain the superposed image, which was the final output of the pipeline. 
 
-####Additional/Modified Functions
-
-#####Draw_edges
+#### Additional/Modified Functions 
+##### Draw_edges
 
 This function replaces the initial draw_line function, intended to annotate the identified Canny edges, and superpose to the original image from the camera. 
 
-#####Draw_lines
-
+##### Draw_lines 
 This function takes in the set of lines identified from the Hough Transform.
 
 For every line in the set, we:
